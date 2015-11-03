@@ -18,8 +18,8 @@ public class App
 {
 	
     private static OSSClient client;
-    private static String key = "mUyRskh2lbq5jCff";
-    private static String secret = "pDNa6muwgh9bdt5FBN4DjQkfHLxV1Z";
+    private static String key = "";
+    private static String secret = "";
     private static String endpoint = "http://oss-cn-beijing.aliyuncs.com";// 以北京为例
 	
     static{
