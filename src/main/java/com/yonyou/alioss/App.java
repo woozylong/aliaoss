@@ -18,17 +18,18 @@ public class App
 {
 	
     private static OSSClient client;
-
+    private static String key = "mUyRskh2lbq5jCff";
+    private static String secret = "pDNa6muwgh9bdt5FBN4DjQkfHLxV1Z";
+    private static String endpoint = "http://oss-cn-beijing.aliyuncs.com";// 以北京为例
+	
     static{
-    	String key = "mUyRskh2lbq5jCff";
-    	String secret = "pDNa6muwgh9bdt5FBN4DjQkfHLxV1Z";
-    	String endpoint = "http://oss-cn-hangzhou.aliyuncs.com";// 以杭州为例
+    	
     	
     	// 创建ClientConfiguration实例
     	ClientConfiguration conf = new ClientConfiguration();
     	// 配置代理为本地8080端口
-    	conf.setProxyHost("127.0.0.1");
-    	conf.setProxyPort(8090);
+//    	conf.setProxyHost("127.0.0.1");
+//    	conf.setProxyPort(8090);
     	// 设置HTTP最大连接数为10
     	conf.setMaxConnections(10);
     	// 设置TCP连接超时为5000毫秒
@@ -40,12 +41,12 @@ public class App
     	
     	client = new OSSClient(endpoint, key, secret,conf);
     }
-	public static void main( String[] args )
+	public static void main( String[] args ) throws FileNotFoundException
     {
-    	
+    	putObject("woozylong1", key, "D:\\BugReport.txt");
     }
     
-    public void putObject(String bucketName, String key, String filePath) throws FileNotFoundException {
+    public static void putObject(String bucketName, String key, String filePath) throws FileNotFoundException {
         // 获取指定文件的输入流
         File file = new File(filePath);
         InputStream content = new FileInputStream(file);
